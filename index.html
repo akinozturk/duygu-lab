@@ -231,7 +231,7 @@
                                     <p class="font-bold text-gray-900">Lab Location</p>
                                     <!-- Lab location added -->
                                     <p class="text-gray-600">
-                                        FENS Building, Office 1005<br>
+                                        FENS Building, Office 1003<br>
                                         Sabancı University, İstanbul, Turkey
                                     </p>
                                 </div>
@@ -242,7 +242,8 @@
                     <!-- Simple Inquiry Form (Static, for demonstration) -->
                     <div class="bg-background p-8 rounded-xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Quick Message</h3>
-                        <form onsubmit="event.preventDefault(); document.getElementById('form-message').classList.remove('hidden'); this.reset();">
+                        <!-- UPDATED FORM: Calls JavaScript function to construct and open mailto link -->
+                        <form onsubmit="return sendEmail();">
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
                                 <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200">
@@ -256,11 +257,11 @@
                                 <textarea id="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200"></textarea>
                             </div>
                             <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 transform hover:scale-[1.01]">
-                                Send Inquiry
+                                Email Inquiry to Dr. Ozturk
                             </button>
                             <!-- Confirmation Message -->
-                            <p id="form-message" class="text-sm text-green-700 mt-4 hidden">
-                                Thank you! Your mock message has been received. We will respond shortly.
+                            <p id="form-message-success" class="text-sm text-green-700 mt-4 hidden">
+                                Thank you! Your email client should now be open with your pre-filled message.
                             </p>
                         </form>
                     </div>
@@ -277,5 +278,48 @@
         </div>
     </footer>
 
+    <!-- JavaScript to handle the mailto link construction -->
+    <script>
+        /**
+         * Captures form data, constructs a mailto: link, and redirects the user
+         * to open their default email client.
+         * @returns {boolean} Always returns false to prevent standard form submission.
+         */
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation check
+            if (!name || !email || !message) {
+                // Should be prevented by 'required' attribute, but good backup
+                return false;
+            }
+
+            const recipient = 'duygu.kuzuoglu@sabanciuniv.edu';
+            
+            // Construct Subject and Body, ensuring they are URL encoded
+            const subject = encodeURIComponent(`Lab Inquiry from ${name}`);
+            const body = encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            );
+
+            // Create the full mailto link
+            const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+            
+            // Redirect the browser to the mailto link, opening the email client
+            window.location.href = mailtoLink;
+            
+            // Show a success message to the user
+            document.getElementById('form-message-success').classList.remove('hidden');
+
+            // Reset the form after a slight delay for better user experience
+            setTimeout(() => {
+                document.querySelector('form').reset();
+            }, 100);
+
+            return false; // Prevent default form submission
+        }
+    </script>
 </body>
 </html>
