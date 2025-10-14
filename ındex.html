@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozturk Research Group | Molecular & Translational Control</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for the Inter font and modern features -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#059669', // Emerald 600
+                        'secondary': '#3B82F6', // Blue 500
+                        'background': '#F9FAFB', // Light Gray background
+                        'card': '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for a cleaner font loading and smooth scrolling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom class for the PI image container for better layout */
+        .pi-image-container {
+            /* Ensures the container respects the image aspect ratio and shadow */
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background font-sans text-gray-800">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-card shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary hover:text-green-700 transition duration-300">Ozturk Research Group</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-primary transition duration-200 font-medium">About Duygu</a>
+                <a href="#research" class="text-gray-600 hover:text-primary transition duration-200 font-medium">Research</a>
+                <a href="#publications" class="text-gray-600 hover:text-primary transition duration-200 font-medium">Publications</a>
+                <a href="#connect" class="text-white bg-primary hover:bg-green-700 px-4 py-2 rounded-full shadow-md transition duration-300">Connect</a>
+            </nav>
+            <!-- Mobile Menu Placeholder (Not functional in this single file, but good practice) -->
+            <button class="md:hidden text-gray-600 hover:text-primary">
+                <!-- Hamburger Icon -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: Lab Mission -->
+        <section class="bg-white py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-secondary font-semibold text-lg mb-3">Welcome to the Lab</p>
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                    Decoding Molecular Control <span class="text-primary">of Gene Expression</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                    The Ozturk Research Group investigates the fundamental mechanisms of **post-transcriptional regulation**, focusing on how key protein complexes control mRNA translation, stability, and decay in development and disease.
+                </p>
+                <a href="#research" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-secondary hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    Explore Our Work
+                </a>
+            </div>
+        </section>
+
+        <!-- PI Introduction Section -->
+        <section id="about" class="py-16 sm:py-24 bg-background">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-10 items-center bg-card p-8 rounded-xl shadow-lg">
+                    <div class="md:col-span-1 flex justify-center">
+                        <!-- UPDATED: Using the provided friendly image -->
+                        <div class="pi-image-container w-full max-w-sm rounded-xl transition duration-500 hover:shadow-2xl hover:scale-[1.02] transform">
+                             <img class="w-full h-auto rounded-xl object-cover"
+                                src="uploaded:image_f0c060.jpg-8b084ff4-87d9-4348-b10e-d4e4b8993c81"
+                                alt="Photo of Dr. Duygu Kuzuoglu Ozturk with Sabancı University background">
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                            Dr. Duygu Kuzuoglu Ozturk
+                        </h2>
+                        <p class="text-xl font-medium text-primary mb-6">
+                            Principal Investigator & Molecular Biologist
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Dr. Ozturk leads the group with expertise in molecular and cell biology, focusing on the mechanisms that control **mRNA fate and protein synthesis**. Her work identifies crucial regulatory steps and protein complexes that, when dysregulated, contribute to diseases like cancer and neurological disorders. She is committed to fostering an inclusive and collaborative research environment at Sabancı University.
+                        </p>
+                        <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                            <!-- Placeholder for external links (LinkedIn placeholder kept) -->
+                            <a href="#" class="text-gray-500 hover:text-primary transition duration-200" aria-label="LinkedIn">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764 0-.974.784-1.764 1.75-1.764.965 0 1.75.79 1.75 1.764 0 .974-.785 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.529-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                            <!-- Google Scholar link added -->
+                            <a href="https://scholar.google.com/citations?hl=en&user=DSf47xEAAAAJ" target="_blank" class="text-gray-500 hover:text-primary transition duration-200" aria-label="Google Scholar">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 0H2C.89 0 0 .9 0 2v20c0 1.1.89 2 2 2h20c1.11 0 2-.9 2-2V2c0-1.1-.89-2-2-2zM8.54 18.29c-.79-.38-1.46-.86-2.02-1.43l-1.43 1.43c.71.71 1.54 1.28 2.5 1.76l.95-.56zm3.46 0l-2.88-2.88c-.62-.62-1.05-1.39-1.28-2.26h2.96l1.2-1.2h-4.2c.24-1.26.86-2.3 1.79-3.08l-2.43-2.43c-1.35 1.25-2.2 2.97-2.2 4.88 0 1.95.84 3.73 2.25 5.01l2.43-2.43c-.22-.22-.4-.48-.54-.78H7.3c-.15.34-.37.66-.66.95l1.6 1.6zM15 12h-2v2h2v-2zm-2.88-2.88c.62-.62 1.39-1.05 2.26-1.28v2.96l-1.2 1.2h4.2c-.24 1.26-.86 2.3-1.79 3.08l2.43 2.43c1.35-1.25 2.2-2.97 2.2-4.88 0-1.95-.84-3.73-2.25-5.01l-2.43 2.43c.22.22.4.48.54.78h-2.96c.15-.34.37-.66.66-.95l-1.6-1.6z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Focus Section -->
+        <section id="research" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900">
+                        Our Core Research Areas
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-600">
+                        We investigate the molecular components and regulatory networks that govern mRNA expression and stability.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Area 1: RNA Decay & Regulatory Complexes -->
+                    <div class="bg-card p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-primary">
+                        <div class="text-4xl text-primary mb-4">🧬</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">RNA Decay & CCR4-NOT</h3>
+                        <p class="text-gray-600">
+                            Mechanistically dissecting the **CCR4-NOT complex**, a key regulator of mRNA deadenylation and decay. We study its structure, assembly, and role in miRNA-mediated target silencing and general mRNA turnover.
+                        </p>
+                    </div>
+
+                    <!-- Area 2: Translational Control in Cancer -->
+                    <div class="bg-card p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-secondary">
+                        <div class="text-4xl text-secondary mb-4">🔬</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Translational Control in Cancer</h3>
+                        <p class="text-gray-600">
+                            Investigating how oncogenes like **N-myc** hijack the translational machinery (e.g., eIF4F complex, mTOR) to promote cancer cell fitness and identifying small-molecule inhibitors to disrupt these pathways.
+                        </p>
+                    </div>
+
+                    <!-- Area 3: Molecular Disease Mechanisms -->
+                    <div class="bg-card p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-red-500">
+                        <div class="text-4xl text-red-500 mb-4">🔬</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Molecular Disease Mechanisms</h3>
+                        <p class="text-gray-600">
+                            Exploring the role of metabolic enzymes (like PHGDH) and protein-protein interactions in disease etiology, including viral infections (e.g., SARS-CoV-2) and tissue regeneration models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications/Impact Section -->
+        <section id="publications" class="py-16 sm:py-24 bg-background">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900">
+                        Recent Impact & Publications
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-600">
+                        Selected works that showcase our contribution to the field.
+                    </p>
+                </div>
+                
+                <div class="space-y-6 max-w-4xl mx-auto">
+                    <!-- Publication 1 (Real Data) -->
+                    <div class="bg-card p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300">
+                        <p class="text-sm text-primary font-semibold mb-1">Nature | 2023</p>
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DSf47xEAAAAJ&citation_for_view=DSf47xEAAAAJ:u-IgK6f25-gC" target="_blank" class="text-lg font-bold text-gray-900 hover:text-secondary">
+                            Evolutionarily divergent mTOR remodels translatome for tissue regeneration.
+                        </a>
+                        <p class="text-gray-500 text-sm mt-1">Zhulyn, O., Rosenblatt, H. D., ... Kuzuoglu-Öztürk, D., ... Zhang, Z.</p>
+                    </div>
+                    <!-- Publication 2 (Real Data) -->
+                    <div class="bg-card p-6 rounded-lg shadow-md border-l-4 border-secondary hover:shadow-lg transition duration-300">
+                        <p class="text-sm text-secondary font-semibold mb-1">Cancer Research | 2023</p>
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DSf47xEAAAAJ&citation_for_view=DSf47xEAAAAJ:d1gkVwhDpl0C" target="_blank" class="text-lg font-bold text-gray-900 hover:text-primary">
+                            N-myc–Mediated Translation Control Is a Therapeutic Vulnerability in Medulloblastoma.
+                        </a>
+                        <p class="text-gray-500 text-sm mt-1">Kuzuoglu-Ozturk, D., Aksoy, O., Schmidt, C., ... Phelps, R. R. L.</p>
+                    </div>
+                    <!-- Publication 3 (Real Data) -->
+                    <div class="bg-card p-6 rounded-lg shadow-md border-l-4 border-red-500 hover:shadow-lg transition duration-300">
+                        <p class="text-sm text-red-500 font-semibold mb-1">Molecular Cell | 2014</p>
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DSf47xEAAAAJ&citation_for_view=DSf47xEAAAAJ:u5HHm3KU_y8C" target="_blank" class="text-lg font-bold text-gray-900 hover:text-primary">
+                            A DDX6-CNOT1 complex and W-binding pockets in CNOT9 reveal direct links between miRNA target recognition and silencing.
+                        </a>
+                        <p class="text-gray-500 text-sm mt-1">Chen, Y., Boland, A., Kuzuoğlu-Öztürk, D., ... Izaurralde, E.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <!-- Link to Google Scholar added -->
+                    <a href="https://scholar.google.com/citations?hl=en&user=DSf47xEAAAAJ" target="_blank" class="inline-flex items-center text-primary font-medium hover:text-green-700 transition duration-300">
+                        View All Publications on Google Scholar
+                        <span class="ml-2">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+                            Join Our Mission
+                        </h2>
+                        <p class="text-lg text-gray-600 mb-8">
+                            We are always looking for passionate students, post-docs, and collaborators interested in **molecular biology, RNA regulation, and disease mechanisms**. Reach out to discuss opportunities.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <span class="text-primary mr-3 mt-1 text-xl">📧</span>
+                                <div>
+                                    <p class="font-bold text-gray-900">Email Inquiries</p>
+                                    <!-- Email address added -->
+                                    <a href="mailto:duygu.kuzuoglu@sabanciuniv.edu" class="text-secondary hover:underline">duygu.kuzuoglu@sabanciuniv.edu</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-primary mr-3 mt-1 text-xl">📍</span>
+                                <div>
+                                    <p class="font-bold text-gray-900">Lab Location</p>
+                                    <!-- Lab location added -->
+                                    <p class="text-gray-600">
+                                        FENS Building, Office 205 (Mock Location)<br>
+                                        Sabancı University, İstanbul, Turkey
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simple Inquiry Form (Static, for demonstration) -->
+                    <div class="bg-background p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Quick Message</h3>
+                        <form onsubmit="event.preventDefault(); document.getElementById('form-message').classList.remove('hidden'); this.reset();">
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (e.g., Collaboration Inquiry)</label>
+                                <textarea id="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 transform hover:scale-[1.01]">
+                                Send Inquiry
+                            </button>
+                            <!-- Confirmation Message -->
+                            <p id="form-message" class="text-sm text-green-700 mt-4 hidden">
+                                Thank you! Your mock message has been received. We will respond shortly.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2024 Ozturk Research Group. All rights reserved.</p>
+            <p class="mt-2 text-gray-400">Molecular Biology & Translational Control | Led by Dr. Duygu Kuzuoglu Ozturk</p>
+        </div>
+    </footer>
+
+</body>
+</html>
