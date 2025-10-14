@@ -43,7 +43,7 @@
     <!-- Navbar -->
     <header class="sticky top-0 z-50 bg-card shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary hover:text-green-700 transition duration-300">Kuzuoglu Ozturk Research Group</a>
+            <a href="#" class="text-2xl font-bold text-primary hover:text-green-700 transition duration-300">Ozturk Research Group</a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#about" class="text-gray-600 hover:text-primary transition duration-200 font-medium">About Duygu</a>
                 <a href="#research" class="text-gray-600 hover:text-primary transition duration-200 font-medium">Research</a>
@@ -62,7 +62,7 @@
         <!-- Hero Section: Lab Mission -->
         <section class="bg-white py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-secondary font-semibold text-lg mb-3">Welcome to Kuzuoglu Ozturk Lab</p>
+                <p class="text-secondary font-semibold text-lg mb-3">Welcome to the Lab</p>
                 <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
                     Decoding Molecular Control <span class="text-primary">of Gene Expression</span>
                 </h1>
@@ -245,31 +245,27 @@
                         </div>
                     </div>
 
-                    <!-- Simple Inquiry Form (Static, for demonstration) -->
-                    <div class="bg-background p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Quick Message</h3>
-                        <!-- FORM: Calls JavaScript function to construct and open mailto link -->
-                        <form onsubmit="return sendEmail();">
-                            <div class="mb-4">
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (e.g., Collaboration Inquiry)</label>
-                                <textarea id="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-200"></textarea>
-                            </div>
-                            <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 transform hover:scale-[1.01]">
-                                Email Inquiry to Dr. Ozturk
-                            </button>
-                            <!-- Confirmation Message -->
-                            <p id="form-message-success" class="text-sm text-green-700 mt-4 hidden">
-                                Thank you! Your email client should now be open with your pre-filled message.
+                    <!-- Video Call Link -->
+                    <div class="bg-background p-8 rounded-xl shadow-lg flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Schedule a Video Call</h3>
+                            <p class="text-gray-600 mb-6">
+                                Connect instantly or book a time slot to discuss collaboration, opportunities, or research questions directly with Dr. Kuzuoglu Ozturk.
                             </p>
-                        </form>
+                        </div>
+                        
+                        <a href="http://11to.me/dyg" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-secondary text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-[1.01] flex items-center justify-center">
+                            <!-- Video Camera Icon (lucide-react icon equivalent) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
+                                <path d="M14.5 10a2.5 2.5 0 0 0-5 0v3.5a2.5 2.5 0 0 0 5 0Z"/>
+                                <path d="M5.52 14.84a3.86 3.86 0 0 0 0 4.16"/>
+                                <path d="M18.48 14.84a3.86 3.86 0 0 1 0 4.16"/>
+                                <path d="M12 2a3.86 3.86 0 0 0-4.16 0"/>
+                                <path d="M12 2a3.86 3.86 0 0 1 4.16 0"/>
+                                <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2Z"/>
+                            </svg>
+                            Start Video Call
+                        </a>
                     </div>
                 </div>
             </div>
@@ -284,49 +280,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript to handle the mailto link construction -->
-    <script>
-        /**
-         * Captures form data, constructs a mailto: link, and attempts to open
-         * the user's default email client using a temporary link element for reliability.
-         * @returns {boolean} Always returns false to prevent standard form submission.
-         */
-        function sendEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Basic validation check
-            if (!name || !email || !message) {
-                return false;
-            }
-
-            const recipient = 'duygu.kuzuoglu@sabanciuniv.edu';
-            
-            // Construct Subject and Body, ensuring they are URL encoded
-            const subject = encodeURIComponent(`Lab Inquiry from Website (${name})`);
-            const body = encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-            );
-
-            // Create the full mailto link
-            const tempLink = document.createElement('a');
-            tempLink.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-            tempLink.style.display = 'none'; // Hide the element
-            document.body.appendChild(tempLink);
-            tempLink.click(); // Programmatically click the link
-            document.body.removeChild(tempLink); // Clean up the element
-
-            // Show a success message
-            document.getElementById('form-message-success').classList.remove('hidden');
-
-            // Reset the form after a slight delay
-            setTimeout(() => {
-                document.querySelector('form').reset();
-            }, 100);
-
-            return false; // Prevent default form submission
-        }
-    </script>
+    <!-- Removed the sendEmail JavaScript function as it's no longer needed -->
 </body>
 </html>
