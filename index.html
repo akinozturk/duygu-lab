@@ -95,7 +95,7 @@
                             Principal Investigator & Molecular Biologist
                         </p>
                         <p class="text-gray-600 leading-relaxed">
-                            Dr. Ozturk leads the group with expertise in molecular and cell biology, focusing on the mechanisms that control **mRNA fate and protein synthesis**. Her work identifies crucial regulatory steps and protein complexes that, when dysregulated, contribute to diseases like cancer and neurological disorders. She is committed to fostering an inclusive and collaborative research environment at Sabancı University.
+                            Dr. Ozturk leads the group with expertise in molecular and cell biology, focusing on the mechanisms that control "mRNA fate and protein synthesis". Her work identifies crucial regulatory steps and protein complexes that, when dysregulated, contribute to diseases like cancer and neurological disorders. She is committed to fostering an inclusive and collaborative research environment at Sabancı University.
                         </p>
                         <div class="mt-6 flex justify-center md:justify-start space-x-4">
                             <!-- LinkedIn link -->
@@ -136,7 +136,7 @@
                         <div class="text-4xl text-primary mb-4">🧬</div>
                         <h3 class="text-xl font-bold mb-3 text-gray-900">RNA Decay & CCR4-NOT</h3>
                         <p class="text-gray-600">
-                            Mechanistically dissecting the **CCR4-NOT complex**, a key regulator of mRNA deadenylation and decay. We study its structure, assembly, and role in miRNA-mediated target silencing and general mRNA turnover.
+                            Mechanistically dissecting the "CCR4-NOT complex", a key regulator of mRNA deadenylation and decay. We study its structure, assembly, and role in miRNA-mediated target silencing and general mRNA turnover.
                         </p>
                     </div>
 
@@ -145,7 +145,7 @@
                         <div class="text-4xl text-secondary mb-4">🔬</div>
                         <h3 class="text-xl font-bold mb-3 text-gray-900">Translational Control in Cancer</h3>
                         <p class="text-gray-600">
-                            Investigating how oncogenes like **N-myc** hijack the translational machinery (e.g., eIF4F complex, mTOR) to promote cancer cell fitness and identifying small-molecule inhibitors to disrupt these pathways.
+                            Investigating how oncogenes like "N-myc" hijack the translational machinery (e.g., eIF4F complex, mTOR) to promote cancer cell fitness and identifying small-molecule inhibitors to disrupt these pathways.
                         </p>
                     </div>
 
@@ -310,12 +310,8 @@
             );
 
             // Create the full mailto link
-            const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
-            
-            // Use a temporary hidden anchor element to trigger the mail client,
-            // which is often more reliable than window.location.href in modern browsers.
             const tempLink = document.createElement('a');
-            tempLink.href = mailtoLink;
+            tempLink.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
             tempLink.style.display = 'none'; // Hide the element
             document.body.appendChild(tempLink);
             tempLink.click(); // Programmatically click the link
