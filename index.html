@@ -1,342 +1,644 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ozturk Research Group | Molecular & Translational Control</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'primary': '#059669', // Emerald 600
-                        'secondary': '#3B82F6', // Blue 500
-                        'background': '#F9FAFB', // Light Gray background
-                        'card': '#FFFFFF',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
-        /* FIX: Adds padding so the sticky header doesn't cover section titles when scrolling */
-        html {
-            scroll-padding-top: 5rem;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuzuoğlu Öztürk Lab | Sabancı University</title>
+<meta name="description" content="The Kuzuoğlu Öztürk Lab at Sabancı University studies translational control and post-transcriptional gene regulation in cancer, with a focus on prostate cancer and RNA-targeted therapeutics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101828;
+    --ink-2:#344054;
+    --muted:#667085;
+    --line:#e4e2dc;
+    --paper:#fbfaf7;
+    --card:#ffffff;
+    --navy:#0b2e59;
+    --navy-2:#153f73;
+    --accent:#b4552b;
+    --accent-soft:#f6ece6;
+    --navy-soft:#e9eef6;
+    --radius:14px;
+    --max:1120px;
+    --serif:"Newsreader", Georgia, "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--navy-2)}
+  a:hover{color:var(--accent)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--ink);margin:0}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  section{padding:96px 0;border-top:1px solid var(--line)}
+  .section-head{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:48px;max-width:720px}
+  .section-head h2{font-size:clamp(30px,4vw,42px);line-height:1.15}
+  .section-head p{color:var(--ink-2);margin:8px 0 0;font-size:17px}
 
-        .pi-image-container {
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-    </style>
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);line-height:1.15}
+  .brand strong{font-family:var(--serif);font-size:21px;font-weight:600}
+  .brand span{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center}
+  .nav a.link{color:var(--ink-2);text-decoration:none;font-size:14.5px;font-weight:500}
+  .nav a.link:hover{color:var(--navy)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-size:14.5px;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-2);color:#fff}
+  .btn-ghost{border:1px solid #cfd4dc;color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+  .menu-btn{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
+  .mobile-menu{display:none;border-top:1px solid var(--line);background:var(--paper)}
+  .mobile-menu a{display:block;padding:14px 24px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);font-weight:500}
+  .mobile-menu.open{display:block}
+
+  /* Hero */
+  .hero{padding:88px 0 80px;border-top:0;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1.06}
+  .hero h1 em{font-style:italic;color:var(--navy)}
+  .hero .lede{font-size:19px;color:var(--ink-2);max-width:620px;margin:24px 0 32px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-art{width:100%;height:auto}
+  .honors{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+  .honors div{padding:20px 22px;border-left:1px solid var(--line)}
+  .honors div:first-child{border-left:0}
+  .honors b{display:block;font-family:var(--serif);font-size:19px;font-weight:600;color:var(--navy);line-height:1.25}
+  .honors span{font-size:13px;color:var(--muted)}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:start}
+  .portrait{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--navy);aspect-ratio:4/5}
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:42% 30%}
+  .portrait .mono{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-family:var(--serif);font-size:72px;color:#fff}
+  .portrait.fallback .mono{display:flex}
+  .portrait.fallback img{display:none}
+  .profile-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-2);text-decoration:none;background:var(--card)}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip svg{width:14px;height:14px}
+  .about h2{font-size:clamp(30px,3.6vw,40px)}
+  .about .role{color:var(--muted);margin:6px 0 24px;font-size:15.5px}
+  .about p{color:var(--ink-2);margin:0 0 16px;font-size:16.5px}
+  .timeline{list-style:none;margin:32px 0 0;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .timeline .when{color:var(--muted);font-variant-numeric:tabular-nums}
+  .timeline .what b{font-weight:600;color:var(--ink)}
+  .timeline .what span{color:var(--ink-2)}
+
+  /* Research */
+  .research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .theme{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+  .theme .num{font-family:var(--serif);font-size:15px;color:var(--accent);font-weight:600}
+  .theme h3{font-size:24px;margin:8px 0 12px;line-height:1.25}
+  .theme p{margin:0;color:var(--ink-2);font-size:15.5px}
+  .theme .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+  .theme .tags span{font-size:12px;padding:4px 10px;border-radius:999px;background:var(--navy-soft);color:var(--navy);font-weight:500}
+
+  /* News */
+  .news{list-style:none;margin:0;padding:0}
+  .news li{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .news li:first-child{border-top:1px solid var(--line)}
+  .news .date{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+  .news h3{font-size:22px;line-height:1.3;margin-bottom:6px}
+  .news p{margin:0;color:var(--ink-2);font-size:15.5px}
+  .news a.more{display:inline-block;margin-top:8px;font-size:14px;font-weight:600;text-decoration:none}
+  .badge{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;margin-right:8px;vertical-align:3px}
+  .b-award{background:var(--accent-soft);color:var(--accent)}
+  .b-grant{background:var(--navy-soft);color:var(--navy)}
+  .b-paper{background:#e8f3ee;color:#1d6b4a}
+  .b-service{background:#f0eef7;color:#54469a}
+
+  /* Funding */
+  .funding{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .fund{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .fund .who{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .fund h3{font-size:21px;margin:8px 0 10px;line-height:1.3}
+  .fund p{margin:0;color:var(--ink-2);font-size:15px}
+
+  /* Publications */
+  .pubs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+  .pubs-head .section-head{margin-bottom:0}
+  .filters{display:flex;gap:8px;flex-wrap:wrap}
+  .filters button{font:inherit;font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);cursor:pointer}
+  .filters button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+  .pub-year{font-family:var(--serif);font-size:20px;color:var(--muted);margin:32px 0 4px}
+  .pub{display:block;padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+  .pub:hover .pub-title{color:var(--navy)}
+  .pub-title{font-family:var(--serif);font-size:19.5px;line-height:1.35;color:var(--ink);transition:color .2s}
+  .pub-authors{font-size:14px;color:var(--muted);margin-top:6px}
+  .pub-authors b{color:var(--ink);font-weight:600}
+  .pub-venue{font-size:14px;color:var(--ink-2);margin-top:4px}
+  .pub-venue i{font-style:italic}
+  .pub .note{display:inline-block;font-size:11.5px;font-weight:600;color:var(--accent);margin-left:6px}
+  .pubs-foot{margin-top:32px;font-size:14px;color:var(--muted)}
+
+  /* Teaching & Service */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+  .panel h3{font-size:24px;margin-bottom:14px}
+  .panel ul{margin:0;padding-left:18px;color:var(--ink-2)}
+  .panel li{margin:8px 0}
+
+  /* Join / Contact */
+  .join{background:var(--navy);color:#dfe7f3;border-top:0}
+  .join .eyebrow{color:#f0b392}
+  .join h2{color:#fff;font-size:clamp(30px,4vw,44px);line-height:1.15}
+  .join-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  .join p{font-size:17px;color:#c9d5e6}
+  .join ul{padding-left:18px;color:#c9d5e6}
+  .join li{margin:6px 0}
+  .contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:32px}
+  .contact-card dl{margin:0 0 24px}
+  .contact-card dt{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9fb2cc;margin-top:16px}
+  .contact-card dt:first-child{margin-top:0}
+  .contact-card dd{margin:4px 0 0;color:#fff;font-size:16px}
+  .contact-card a{color:#fff}
+  .contact-card a:hover{color:#f0b392}
+  .btn-light{background:#fff;color:var(--navy)}
+  .btn-light:hover{background:#f0b392;color:var(--navy)}
+
+  footer{padding:32px 0;font-size:13.5px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--muted)}
+
+  /* Responsive */
+  @media (max-width: 960px){
+    .hero-grid,.about-grid,.join-grid{grid-template-columns:1fr}
+    .hero-art{max-width:420px}
+    .honors{grid-template-columns:repeat(2,1fr)}
+    .honors div:nth-child(3){border-left:0}
+    .honors div:nth-child(n+3){border-top:1px solid var(--line)}
+    .funding{grid-template-columns:1fr}
+    .about-grid .portrait{max-width:300px}
+  }
+  @media (max-width: 760px){
+    .nav ul{display:none}
+    .menu-btn{display:block}
+    section{padding:72px 0}
+    .wrap{padding:0 16px}
+    .research-grid,.two-col{grid-template-columns:1fr}
+    .news li{grid-template-columns:1fr;gap:6px}
+    .timeline li{grid-template-columns:1fr;gap:2px}
+    .theme,.panel,.fund,.contact-card{padding:24px}
+  }
+  @media (max-width: 460px){
+    .honors{grid-template-columns:1fr}
+    .honors div{border-left:0 !important}
+    .honors div + div{border-top:1px solid var(--line)}
+  }
+</style>
 </head>
-<body class="bg-background font-sans text-gray-800 flex flex-col min-h-screen">
+<body>
 
-    <header class="sticky top-0 z-50 bg-card/95 backdrop-blur-sm shadow-lg border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-xl sm:text-2xl font-bold text-primary hover:text-green-700 transition duration-300 flex items-center gap-2">
-                    <span>🧬</span> Ozturk Research Group
-                </a>
-                
-                <nav class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-gray-600 hover:text-primary transition duration-200 font-medium text-sm lg:text-base">About Duygu</a>
-                    <a href="#awards" class="text-gray-600 hover:text-primary transition duration-200 font-medium text-sm lg:text-base">Awards</a>
-                    <a href="#research" class="text-gray-600 hover:text-primary transition duration-200 font-medium text-sm lg:text-base">Research</a>
-                    <a href="#publications" class="text-gray-600 hover:text-primary transition duration-200 font-medium text-sm lg:text-base">Publications</a>
-                    <a href="#connect" class="text-white bg-primary hover:bg-green-700 px-5 py-2 rounded-full shadow-md transition duration-300 font-medium text-sm lg:text-base">Connect</a>
-                </nav>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Kuzuoğlu Öztürk Lab, home">
+      <strong>Kuzuoğlu Öztürk Lab</strong>
+      <span>Sabancı University</span>
+    </a>
+    <ul>
+      <li><a class="link" href="#about">About</a></li>
+      <li><a class="link" href="#research">Research</a></li>
+      <li><a class="link" href="#news">News</a></li>
+      <li><a class="link" href="#publications">Publications</a></li>
+      <li><a class="link" href="#teaching">Teaching</a></li>
+      <li><a class="btn btn-primary" href="#join">Join the lab</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#join">Join the lab</a>
+  </nav>
+</header>
 
-                <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-primary focus:outline-none p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Molecular Biology, Genetics &amp; Bioengineering · Sabancı University</p>
+          <h1>How cancer cells control <em>which proteins get made</em> — and how to stop them.</h1>
+          <p class="lede">We study translational control and post-transcriptional gene regulation in cancer, with a focus on prostate cancer. Our goal is to uncover how oncogenic signals rewire the protein-synthesis machinery and to turn those dependencies into RNA-targeted therapies.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#research">Our research</a>
+            <a class="btn btn-ghost" href="#publications">Publications</a>
+          </div>
         </div>
+        <!-- Abstract illustration: an mRNA with a 5′ cap, a structured 5′ UTR and translating ribosomes -->
+        <svg class="hero-art" viewBox="0 0 420 360" role="img" aria-label="Illustration of an mRNA being translated by ribosomes">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#0b2e59"/><stop offset="1" stop-color="#153f73"/></linearGradient>
+          </defs>
+          <rect x="0" y="0" width="420" height="360" rx="20" fill="#e9eef6"/>
+          <path d="M40 220 C 80 220, 90 180, 120 180 S 150 230, 180 214 S 230 200, 260 206 S 330 214, 385 210" fill="none" stroke="#0b2e59" stroke-width="3" stroke-linecap="round"/>
+          <!-- 5' cap -->
+          <circle cx="40" cy="220" r="9" fill="#b4552b"/>
+          <text x="30" y="250" font-family="Inter, sans-serif" font-size="12" fill="#667085">m⁷G</text>
+          <!-- structured 5' UTR hairpin -->
+          <path d="M112 181 C 108 150, 132 150, 128 181" fill="none" stroke="#b4552b" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="120" cy="146" r="5" fill="none" stroke="#b4552b" stroke-width="2.5"/>
+          <!-- ribosomes -->
+          <g>
+            <ellipse cx="218" cy="190" rx="30" ry="20" fill="url(#g1)"/>
+            <ellipse cx="218" cy="224" rx="22" ry="13" fill="#153f73" opacity=".85"/>
+          </g>
+          <g>
+            <ellipse cx="312" cy="194" rx="30" ry="20" fill="url(#g1)"/>
+            <ellipse cx="312" cy="228" rx="22" ry="13" fill="#153f73" opacity=".85"/>
+          </g>
+          <!-- nascent peptides -->
+          <path d="M218 170 C 212 140, 238 128, 226 100" fill="none" stroke="#1d6b4a" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>
+          <path d="M312 174 C 300 130, 346 118, 330 70 C 322 48, 350 40, 356 30" fill="none" stroke="#1d6b4a" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>
+          <text x="370" y="238" font-family="Inter, sans-serif" font-size="12" fill="#667085">3′</text>
+          <text x="40" y="300" font-family="Newsreader, serif" font-size="17" fill="#344054" font-style="italic">5′ UTR structure → selective translation</text>
+        </svg>
+      </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
-            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About Duygu</a>
-                <a href="#awards" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Awards</a>
-                <a href="#research" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Research</a>
-                <a href="#publications" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Publications</a>
-                <a href="#connect" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium text-white bg-primary hover:bg-green-700">Connect</a>
-            </div>
+      <div class="honors" aria-label="Recent recognition">
+        <div><b>EMBO Installation Grant</b><span>2026</span></div>
+        <div><b>BAGEP Award</b><span>Science Academy, 2026</span></div>
+        <div><b>TÜBA-GEBİP Award</b><span>Turkish Academy of Sciences, 2025</span></div>
+        <div><b>L'Oréal–UNESCO For Women in Science</b><span>Türkiye, 2025</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="portrait" id="portrait">
+          <img src="./duygusabanci.jpg" alt="Dr. Duygu Kuzuoğlu Öztürk" onerror="document.getElementById('portrait').classList.add('fallback')">
+          <div class="mono" aria-hidden="true">DKÖ</div>
         </div>
-    </header>
-
-    <main class="flex-grow">
-        <section class="relative bg-gradient-to-b from-white to-green-50 py-20 sm:py-32 overflow-hidden">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-green-100 opacity-50 blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
-
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-secondary text-sm font-semibold mb-4 tracking-wide">
-                    SABANCI UNIVERSITY
-                </span>
-                <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight">
-                    Decoding Molecular Control <br class="hidden sm:block"/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">of Gene Expression</span>
-                </h1>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-                    The Ozturk Research Group investigates the fundamental mechanisms of <strong>post-transcriptional regulation</strong>, focusing on how key protein complexes control mRNA translation, stability, and decay in development and disease.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#research" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-full shadow-lg text-white bg-secondary hover:bg-blue-600 transition duration-300 transform hover:-translate-y-1">
-                        Explore Our Work
-                    </a>
-                    <a href="#publications" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-full shadow-sm text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition duration-300">
-                        Recent Publications
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-12 gap-10 items-center">
-                    <div class="md:col-span-5 flex justify-center md:justify-end">
-                        <div class="pi-image-container w-full max-w-sm rounded-2xl relative group">
-                            <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition duration-500 z-10"></div>
-                            <img class="w-full h-auto rounded-2xl object-cover transform transition duration-700 group-hover:scale-105"
-                                src="./duygusabanci.jpg"
-                                alt="Dr. Duygu Kuzuoglu Ozturk"
-                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Duygu+Ozturk&background=059669&color=fff&size=400';"> </div>
-                    </div>
-                    
-                    <div class="md:col-span-7 text-center md:text-left">
-                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
-                            Dr. Duygu Kuzuoglu Ozturk
-                        </h2>
-                        <p class="text-xl font-medium text-primary mb-6">
-                            Principal Investigator & Molecular Biologist
-                        </p>
-                        <p class="text-gray-600 leading-relaxed text-lg mb-6">
-                            Dr. Ozturk leads the group with expertise in molecular and cell biology, focusing on the mechanisms that control <strong>mRNA fate and protein synthesis</strong>. Her work identifies crucial regulatory steps and protein complexes that, when dysregulated, contribute to diseases like cancer and neurological disorders.
-                        </p>
-                        <p class="text-gray-600 leading-relaxed text-lg italic mb-8 border-l-4 border-primary pl-4">
-                            "We are committed to fostering an inclusive and collaborative research environment at Sabancı University."
-                        </p>
-
-                        <div class="flex justify-center md:justify-start space-x-6">
-                            <a href="https://www.linkedin.com/in/duygukuzuogluozturk/" target="_blank" class="text-gray-400 hover:text-[#0077b5] transition transform hover:scale-110">
-                                <span class="sr-only">LinkedIn</span>
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764 0-.974.784-1.764 1.75-1.764.965 0 1.75.79 1.75 1.764 0 .974-.785 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.529-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                            <a href="https://x.com/duygukuzuoglu" target="_blank" class="text-gray-400 hover:text-black transition transform hover:scale-110">
-                                <span class="sr-only">X (Twitter)</span>
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 1668.56 1221.19"><path d="M283.94,167.31l386.39,516.64L281.5,1104h87.51l340.42-367.76L984.48,1104h297.8L874.15,558.3l361.92-390.99 h-87.51l-313.51,338.7l-253.31-338.7H283.94z M412.63,231.77h136.81l604.13,807.76h-136.81L412.63,231.77z"/></svg>
-                            </a>
-                            <a href="https://scholar.google.com/citations?hl=en&user=DSf47xEAAAAJ" target="_blank" class="text-gray-400 hover:text-[#4285F4] transition transform hover:scale-110">
-                                <span class="sr-only">Google Scholar</span>
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="m12 10.282h11.328c.116.6.184 1.291.187 1.997v.003c.001.066.002.144.002.222 0 2.131-.527 4.139-1.457 5.901l.033-.069c-.941 1.762-2.324 3.18-4.004 4.137l-.051.027c-1.675.945-3.677 1.502-5.809 1.502-.081 0-.162-.001-.242-.002h.012c-.013 0-.029 0-.044 0-1.672 0-3.263-.348-4.704-.975l.076.03c-2.902-1.219-5.164-3.482-6.354-6.306l-.029-.077c-.598-1.379-.945-2.985-.945-4.672s.348-3.293.975-4.75l-.03.078c1.219-2.902 3.482-5.164 6.306-6.354l.077-.029c1.364-.597 2.953-.944 4.624-.944h.051-.003c.059-.001.129-.002.199-.002 3.045 0 5.811 1.197 7.853 3.147l-.004-.004-3.266 3.141c-1.188-1.152-2.81-1.863-4.598-1.863-.065 0-.129.001-.194.003h.009c-.014 0-.03 0-.047 0-1.358 0-2.629.378-3.711 1.034l.032-.018c-2.246 1.358-3.725 3.788-3.725 6.562s1.479 5.204 3.691 6.543l.034.019c1.051.638 2.321 1.016 3.679 1.016h.05-.003.083c.864 0 1.695-.137 2.474-.392l-.056.016c.716-.222 1.339-.542 1.893-.95l-.017.012c.486-.373.907-.794 1.268-1.264l.012-.016c.312-.393.582-.841.79-1.321l.015-.039c.149-.35.271-.759.346-1.184l.005-.035h-6.811z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="awards" class="py-20 bg-background border-t border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900">
-                        Awards & Recognition
-                    </h2>
-                    <p class="mt-4 text-xl text-gray-600">
-                        Acknowledging excellence in molecular biology research.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    
-                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full transition-transform group-hover:scale-110"></div>
-                        <div class="text-4xl mb-4">🏅</div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-gray-900 pr-4">TÜBA - GEBİP Award</h3>
-                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">2025</span>
-                        </div>
-                        <p class="text-sm font-semibold text-gray-500 mb-4">Outstanding Young Scientist</p>
-                        <p class="text-gray-600 mb-6">
-                            Awarded by the Turkish Academy of Sciences (TÜBA) in the Health Sciences category for groundbreaking research in "Cancer Biology & RNA Biology".
-                        </p>
-                        <a href="https://tuba.gov.tr/tr/haberler/akademiden-haberler/2025-yili-tuba-odulleri-aciklandi" target="_blank" class="inline-flex items-center text-sm font-bold text-primary hover:text-green-800">
-                            Read Announcement <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-red-100 rounded-bl-full transition-transform group-hover:scale-110"></div>
-                        <div class="text-4xl mb-4">⭐</div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-gray-900 pr-4">For Women in Science Award</h3>
-                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-bold">2025</span>
-                        </div>
-                        <p class="text-sm font-semibold text-gray-500 mb-4">L'Oréal Turkey - UNESCO</p>
-                        <p class="text-gray-600 mb-6">
-                            Honored as one of four distinguished female scientists in 2025 for the project regarding Prostate Cancer susceptibility and mRNA regulation.
-                        </p>
-                        <a href="https://gazetesu.sabanciuniv.edu/tr/ogretim-uyemiz-duygu-kuzuoglu-ozturke-loreal-turkiye-unesco-genc-bilim-kadini-odulu-0" target="_blank" class="inline-flex items-center text-sm font-bold text-red-600 hover:text-red-800">
-                            Read Announcement <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900">
-                        Core Research Areas
-                    </h2>
-                    <p class="mt-4 text-xl text-gray-600">
-                        Investigating regulatory networks governing mRNA expression and stability.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-background p-8 rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition duration-300">
-                        <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center text-2xl mb-6">🧬</div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900">RNA Decay & CCR4-NOT</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Mechanistically dissecting the <strong>CCR4-NOT complex</strong>, a key regulator of mRNA deadenylation. We study its structure, assembly, and role in miRNA-mediated target silencing.
-                        </p>
-                    </div>
-
-                    <div class="bg-background p-8 rounded-xl border border-gray-100 hover:border-secondary/30 hover:shadow-xl transition duration-300">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-6">🔬</div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900">Translational Control in Cancer</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Investigating how oncogenes like <strong>N-myc</strong> hijack the translational machinery (e.g., eIF4F complex, mTOR) to promote cancer cell fitness and identifying inhibitors.
-                        </p>
-                    </div>
-
-                    <div class="bg-background p-8 rounded-xl border border-gray-100 hover:border-red-200 hover:shadow-xl transition duration-300">
-                        <div class="w-14 h-14 bg-red-100 rounded-lg flex items-center justify-center text-2xl mb-6">🩸</div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-900">Molecular Disease Mechanisms</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Exploring the role of metabolic enzymes (like PHGDH) and protein-protein interactions in disease etiology, including viral infections and tissue regeneration.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications" class="py-20 bg-background">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-200 pb-4">
-                    <div class="mb-4 md:mb-0">
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Recent Publications</h2>
-                        <p class="mt-2 text-gray-600">Selected works showcasing our impact.</p>
-                    </div>
-                    <a href="https://scholar.google.com/citations?hl=en&user=DSf47xEAAAAJ" target="_blank" class="text-primary font-bold hover:text-green-800 flex items-center transition">
-                        View Google Scholar <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-                
-                <div class="space-y-4 max-w-5xl mx-auto">
-                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DSf47xEAAAAJ&citation_for_view=DSf47xEAAAAJ:u-IgK6f25-gC" target="_blank" class="block bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition duration-200 group">
-                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                            <div>
-                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-primary transition">Evolutionarily divergent mTOR remodels translatome for tissue regeneration.</h4>
-                                <p class="text-gray-500 text-sm mt-2">Zhulyn, O., Rosenblatt, H. D., ... <strong>Kuzuoglu-Öztürk, D.</strong>, ... Zhang, Z.</p>
-                            </div>
-                            <span class="flex-shrink-0 px-3 py-1 bg-green-50 text-primary text-xs font-bold rounded uppercase tracking-wide">Nature | 2023</span>
-                        </div>
-                    </a>
-
-                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DSf47xEAAAAJ&citation_for_view=DSf47xEAAAAJ:d1gkVwhDpl0C" target="_blank" class="block bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:border-secondary hover:shadow-md transition duration-200 group">
-                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                            <div>
-                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-secondary transition">N-myc–Mediated Translation Control Is a Therapeutic Vulnerability in Medulloblastoma.</h4>
-                                <p class="text-gray-500 text-sm mt-2"><strong>Kuzuoglu-Ozturk, D.</strong>, Aksoy, O., Schmidt, C., ... Phelps, R. R. L.</p>
-                            </div>
-                            <span class="flex-shrink-0 px-3 py-1 bg-blue-50 text-secondary text-xs font-bold rounded uppercase tracking-wide">Cancer Research | 2023</span>
-                        </div>
-                    </a>
-
-                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DSf47xEAAAAJ&citation_for_view=DSf47xEAAAAJ:u5HHm3KU_y8C" target="_blank" class="block bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:border-red-500 hover:shadow-md transition duration-200 group">
-                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                            <div>
-                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-red-500 transition">A DDX6-CNOT1 complex and W-binding pockets in CNOT9 reveal direct links between miRNA target recognition and silencing.</h4>
-                                <p class="text-gray-500 text-sm mt-2">Chen, Y., Boland, A., <strong>Kuzuoğlu-Öztürk, D.</strong>, ... Izaurralde, E.</p>
-                            </div>
-                            <span class="flex-shrink-0 px-3 py-1 bg-red-50 text-red-500 text-xs font-bold rounded uppercase tracking-wide">Molecular Cell | 2014</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="connect" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
-                    <div class="grid md:grid-cols-2">
-                        <div class="p-10 md:p-12 text-white">
-                            <h2 class="text-3xl font-bold mb-6">Join Our Mission</h2>
-                            <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-                                We are always looking for passionate students, post-docs, and collaborators interested in molecular biology, RNA regulation, and disease mechanisms.
-                            </p>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center mr-4 text-primary">✉️</div>
-                                    <a href="mailto:duygu.kuzuoglu@sabanciuniv.edu" class="hover:text-primary transition">duygu.kuzuoglu@sabanciuniv.edu</a>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center mr-4 text-primary">📍</div>
-                                    <p>FENS Building, Room 1003, Sabancı University</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-gray-800 p-10 md:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-gray-700">
-                            <h3 class="text-2xl font-bold text-white mb-4">Book a Video Call</h3>
-                            <p class="text-gray-400 mb-8">
-                                Discuss collaboration or research questions directly with Dr. Kuzuoglu Ozturk.
-                            </p>
-                            <a href="https://11to.me/dyg" target="_blank" rel="noopener noreferrer" class="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-green-600 transition duration-300 flex items-center justify-center transform hover:scale-[1.02]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.912 11.606c.872-.524 1.4-1.288 1.4-1.972 0-1.368-2.12-2.3-4.72-2.3s-4.72.932-4.72 2.3c0 .684.528 1.448 1.4 1.972"/><path d="M9.872 13.828c-2.372 1.424-4.72 2.848-4.72 4.272 0 1.368 2.12 2.3 4.72 2.3s4.72-.932 4.72-2.3c0-1.424-2.348-2.848-4.72-4.272Z"/><path d="M19.128 17.512c1.78.896 2.872 1.624 2.872 2.304 0 1.368-2.12 2.3-4.72 2.3-.596 0-1.164-.048-1.696-.14"/><path d="M15.588 18.232c-.44-.264-.916-.548-1.424-.852"/><path d="M6.028 3.512c-2.6 1.304-4.72 2.3-4.72 3.6 0 1.368 2.12 2.3 4.72 2.3.596 0 1.164-.048 1.696-.14"/><path d="M9.568 4.232c.44-.264.916-.548 1.424-.852"/></svg>
-                                Schedule Meeting
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-white border-t border-gray-200 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>&copy; 2025 Ozturk Research Group. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-primary transition">Privacy</a>
-                <a href="#" class="hover:text-primary transition">Sabancı University</a>
-            </div>
+        <div class="profile-links">
+          <a class="chip" href="https://scholar.google.com/citations?user=DSf47xEAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>Google Scholar</a>
+          <a class="chip" href="https://orcid.org/0000-0003-1737-5020" target="_blank" rel="noopener">ORCID</a>
+          <a class="chip" href="https://www.linkedin.com/in/duygukuzuogluozturk/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="https://x.com/DuyguKuzuoglu" target="_blank" rel="noopener">X</a>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+      <div>
+        <p class="eyebrow">Principal Investigator</p>
+        <h2>Dr. Duygu Kuzuoğlu Öztürk</h2>
+        <p class="role">Faculty Member, Molecular Biology, Genetics &amp; Bioengineering<br>Faculty of Engineering and Natural Sciences, Sabancı University, İstanbul</p>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-        
-        // Close menu when clicking a link
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-    </script>
+        <p>Duygu is a molecular biologist whose work centres on how gene expression is controlled after transcription — how cells decide which mRNAs are translated into protein, and how cancer cells hijack that decision. She joined Sabancı University in early 2025 to establish her independent laboratory and continues her long-standing collaborations at the University of California, San Francisco (UCSF).</p>
+        <p>Her doctoral research at the Max Planck Institute for Developmental Biology in Tübingen, in the laboratory of Elisa Izaurralde, dissected how microRNAs and the CCR4–NOT deadenylase complex silence their target mRNAs. As a postdoctoral fellow and scientist in Davide Ruggero's laboratory at UCSF, she turned to translational control in cancer: she carried out a genome-wide screen for eIF4E genetic interactors that reveal cancer-specific vulnerabilities, defined N-myc–driven translation as a therapeutic weakness in medulloblastoma, and showed that the clinical eIF4A inhibitor zotatifin remodels 5′ UTR RNA structure to block oncogene translation in lethal prostate cancer — an approach she calls <em>translatome therapy</em>.</p>
+
+        <ul class="timeline" aria-label="Career">
+          <li><span class="when">2025 – present</span><span class="what"><b>Faculty Member</b> <span>· Sabancı University, İstanbul</span></span></li>
+          <li><span class="when">Postdoc &amp; Scientist</span><span class="what"><b>University of California, San Francisco</b> <span>· Ruggero Lab, Dept. of Urology &amp; Helen Diller Family Comprehensive Cancer Center</span></span></li>
+          <li><span class="when">PhD</span><span class="what"><b>Max Planck Institute for Developmental Biology</b> <span>· Tübingen, Germany (Izaurralde Lab)</span></span></li>
+          <li><span class="when">MSc</span><span class="what"><b>Biological Sciences &amp; Bioengineering</b> <span>· Sabancı University</span></span></li>
+          <li><span class="when">BSc</span><span class="what"><b>Molecular Biology &amp; Genetics</b> <span>· İstanbul Technical University</span></span></li>
+        </ul>
+        <p style="margin-top:20px;font-size:15px;color:var(--muted)">Postdoctoral support included an EMBO Long-Term Fellowship, an HFSP Postdoctoral Fellowship, a UCSF Prostate Cancer Program award, and funding from the U.S. Department of Defense Prostate Cancer Research Program.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Research</p>
+        <h2>From mRNA regulation to new cancer therapies</h2>
+        <p>RNA levels often poorly predict how much protein a cell makes. We work at that gap — on the mechanisms that select which mRNAs are translated, and on how tumours depend on them.</p>
+      </div>
+
+      <div class="research-grid">
+        <article class="theme">
+          <div class="num">01</div>
+          <h3>Translatome therapy in prostate cancer</h3>
+          <p>Castration-resistant prostate cancer depends on the continued production of oncogenic proteins such as the androgen receptor (AR) and HIF1α. We study how translation factors like the RNA helicase eIF4A select these mRNAs through their 5′ UTR structure, and how small molecules that reshape RNA structure can shut down their translation and sensitise tumours to anti-androgen and radiation therapy.</p>
+          <div class="tags"><span>eIF4A</span><span>5′ UTR structure</span><span>AR</span><span>Small-molecule RNA therapeutics</span></div>
+        </article>
+
+        <article class="theme">
+          <div class="num">02</div>
+          <h3>Post-transcriptional control of oncogenic signalling</h3>
+          <p>Signalling pathways that drive prostate cancer progression, including WNT signalling, are regulated well beyond transcription. We map how these pathways are controlled at the level of mRNA translation and stability, and investigate a previously unrecognised function of a key prostate cancer oncogene as a route to new therapeutic strategies.</p>
+          <div class="tags"><span>WNT signalling</span><span>Oncogenes</span><span>Therapeutic targets</span></div>
+        </article>
+
+        <article class="theme">
+          <div class="num">03</div>
+          <h3>The translation machinery as a cellular hub</h3>
+          <p>The cap-binding protein eIF4E is required to translate all eukaryotic genomes, yet it is also a potent oncogene. Building on a genome-wide CRISPRi screen that uncovered more than 600 eIF4E genetic interactions, we explore how translation is wired to autophagy, mitochondrial stress responses and mRNA processing to sustain cancer cell fitness.</p>
+          <div class="tags"><span>eIF4E</span><span>CRISPR screens</span><span>Autophagy</span><span>Mitochondrial stress</span></div>
+        </article>
+
+        <article class="theme">
+          <div class="num">04</div>
+          <h3>Mechanisms of mRNA silencing and decay</h3>
+          <p>Our foundations lie in the biochemistry of mRNA turnover: how microRNA-induced silencing complexes recruit the CCR4–NOT and PAN2–PAN3 deadenylases, displace PABP and repress translation. These mechanisms continue to inform how we think about selective gene regulation in disease.</p>
+          <div class="tags"><span>CCR4–NOT</span><span>miRNA silencing</span><span>Deadenylation</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">News</p>
+        <h2>Recognition &amp; milestones</h2>
+      </div>
+      <ul class="news">
+        <li>
+          <div class="date">Sep 2026</div>
+          <div>
+            <h3><span class="badge b-service">Service</span>Scientific Committee, MolBiyoKon'26</h3>
+            <p>Duygu served on the scientific committee of the 10th International Congress of the Molecular Biology Association of Turkey, held 17–19 September 2026 at Acıbadem University, İstanbul.</p>
+            <a class="more" href="https://molbiyokon.org/homepage" target="_blank" rel="noopener">Congress website →</a>
+          </div>
+        </li>
+        <li>
+          <div class="date">2026</div>
+          <div>
+            <h3><span class="badge b-award">Award</span>Science Academy Young Scientist Award (BAGEP 2026)</h3>
+            <p>Selected as one of 37 early-career researchers across Türkiye for the Science Academy's BAGEP award, which provides two years of research support. The 2026 ceremony was hosted at Sabancı University.</p>
+          </div>
+        </li>
+        <li>
+          <div class="date">Jan 2026</div>
+          <div>
+            <h3><span class="badge b-grant">Grant</span>EMBO Installation Grant</h3>
+            <p>One of 10 scientists selected for the 2026 EMBO Installation Grants, and the only project from Türkiye. The five-year award (€50,000 per year) supports a project investigating a previously unknown function of an oncogene central to prostate cancer and developing new therapeutic approaches.</p>
+            <a class="more" href="https://gazetesu.sabanciuniv.edu/en/dr-duygu-kuzuoglu-ozturk-receives-prestigious-scientific-support-europe-embo-installation-grant" target="_blank" rel="noopener">Read the announcement →</a>
+          </div>
+        </li>
+        <li>
+          <div class="date">2025</div>
+          <div>
+            <h3><span class="badge b-award">Award</span>TÜBA-GEBİP Outstanding Young Scientist Award</h3>
+            <p>Awarded by the Turkish Academy of Sciences for a project on how the WNT signalling pathway is regulated at the post-transcriptional level in prostate cancer. The award was presented at a ceremony at the Presidential Complex in Ankara.</p>
+            <a class="more" href="https://tuba.gov.tr/tr/haberler/akademiden-haberler/2025-yili-tuba-odulleri-aciklandi" target="_blank" rel="noopener">TÜBA announcement →</a>
+          </div>
+        </li>
+        <li>
+          <div class="date">Oct 2025</div>
+          <div>
+            <h3><span class="badge b-award">Award</span>L'Oréal Türkiye–UNESCO For Women in Science Award</h3>
+            <p>One of four scientists honoured in the 23rd L'Oréal Türkiye "For Women in Science" programme, for a project investigating the protein-synthesis control mechanisms of castration-resistant prostate cancer and translating them into therapy.</p>
+            <a class="more" href="https://gazetesu.sabanciuniv.edu/tr/ogretim-uyemiz-duygu-kuzuoglu-ozturke-loreal-turkiye-unesco-genc-bilim-kadini-odulu-0" target="_blank" rel="noopener">Read the announcement →</a>
+          </div>
+        </li>
+        <li>
+          <div class="date">Mar 2025</div>
+          <div>
+            <h3><span class="badge b-paper">Paper</span>Translatome therapy for lethal prostate cancer — <i>Cancer Cell</i></h3>
+            <p>Our study shows that the clinical eIF4A inhibitor zotatifin remodels the 5′ UTR structure of AR and HIF1α mRNAs, blocking their translation, reducing tumour burden and enhancing anti-androgen and radiotherapy responses. The work was highlighted in <i>Nature Reviews Drug Discovery</i> and <i>Nature Reviews Molecular Cell Biology</i>.</p>
+            <a class="more" href="https://doi.org/10.1016/j.ccell.2025.02.027" target="_blank" rel="noopener">Read the paper →</a>
+          </div>
+        </li>
+        <li>
+          <div class="date">2025</div>
+          <div>
+            <h3><span class="badge b-grant">Grant</span>TÜBİTAK 2232-A International Leading Researchers Program</h3>
+            <p>A 36-month project, "Understanding Novel Connections Between the Translation Machinery and Distinct Cellular Processes", funded to establish the lab's research programme at Sabancı University.</p>
+            <a class="more" href="https://gazetesu.sabanciuniv.edu/tr/duygu-kuzuoglu-ozturkun-projesi-tubitak-2232-destegine-hak-kazandi" target="_blank" rel="noopener">Read the announcement →</a>
+          </div>
+        </li>
+        <li>
+          <div class="date">Early 2025</div>
+          <div>
+            <h3><span class="badge b-service">Lab</span>The lab opens at Sabancı University</h3>
+            <p>Duygu joined the Molecular Biology, Genetics &amp; Bioengineering programme at Sabancı University's Faculty of Engineering and Natural Sciences.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FUNDING -->
+  <section id="funding">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Funding</p>
+        <h2>Current support</h2>
+        <p>We are grateful to the organisations that support our research.</p>
+      </div>
+      <div class="funding">
+        <div class="fund">
+          <div class="who">EMBO</div>
+          <h3>Installation Grant</h3>
+          <p>2026–2030 · €50,000 per year for five years to support the long-term development of the lab's independent research programme.</p>
+        </div>
+        <div class="fund">
+          <div class="who">TÜBİTAK</div>
+          <h3>2232-A International Leading Researchers</h3>
+          <p>36-month project on the connections between the translation machinery and distinct cellular processes.</p>
+        </div>
+        <div class="fund">
+          <div class="who">TÜBA · Science Academy</div>
+          <h3>GEBİP &amp; BAGEP awards</h3>
+          <p>Early-career research support from the Turkish Academy of Sciences (2025) and the Science Academy (2026).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="pubs-head">
+        <div class="section-head">
+          <p class="eyebrow">Publications</p>
+          <h2>Selected publications</h2>
+          <p>For a complete list, see <a href="https://scholar.google.com/citations?user=DSf47xEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="cancer" aria-pressed="false">Translation &amp; cancer</button>
+          <button type="button" data-filter="rna" aria-pressed="false">mRNA silencing &amp; decay</button>
+        </div>
+      </div>
+
+      <div id="pubList">
+        <div class="pub-year" data-cat="cancer">2025</div>
+        <a class="pub" data-cat="cancer" href="https://doi.org/10.1016/j.ccell.2025.02.027" target="_blank" rel="noopener">
+          <div class="pub-title">Small-molecule RNA therapeutics to target prostate cancer<span class="note">Co-first author</span></div>
+          <div class="pub-authors"><b>Kuzuoglu-Ozturk D</b>, Nguyen HG, Xue L, Figueredo E, Subramanyam V, … Ruggero D.</div>
+          <div class="pub-venue"><i>Cancer Cell</i> 43(5):841–855 (2025)</div>
+        </a>
+        <a class="pub" data-cat="cancer" href="https://pubmed.ncbi.nlm.nih.gov/?term=Androgen+Receptor+Inhibition+Increases+MHC+Class+I+Expression+and+Improves+Immune+Response+in+Prostate+Cancer" target="_blank" rel="noopener">
+          <div class="pub-title">Androgen receptor inhibition increases MHC class I expression and improves immune response in prostate cancer</div>
+          <div class="pub-authors">Chesner LN, Polesso F, Graff JN, … <b>Kuzuoglu-Ozturk D</b>, … Feng FY, Moran AE.</div>
+          <div class="pub-venue"><i>Cancer Discovery</i> 15(3):481–494 (2025)</div>
+        </a>
+
+        <div class="pub-year" data-cat="cancer">2023</div>
+        <a class="pub" data-cat="cancer" href="https://pubmed.ncbi.nlm.nih.gov/?term=Evolutionarily+divergent+mTOR+remodels+translatome+for+tissue+regeneration" target="_blank" rel="noopener">
+          <div class="pub-title">Evolutionarily divergent mTOR remodels translatome for tissue regeneration</div>
+          <div class="pub-authors">Zhulyn O, Rosenblatt HD, Shokat L, Dai S, <b>Kuzuoglu-Öztürk D</b>, Zhang Z, et al.</div>
+          <div class="pub-venue"><i>Nature</i> (2023)</div>
+        </a>
+        <a class="pub" data-cat="cancer" href="https://pubmed.ncbi.nlm.nih.gov/?term=N-myc-Mediated+Translation+Control+Is+a+Therapeutic+Vulnerability+in+Medulloblastoma" target="_blank" rel="noopener">
+          <div class="pub-title">N-myc–mediated translation control is a therapeutic vulnerability in medulloblastoma<span class="note">First author</span></div>
+          <div class="pub-authors"><b>Kuzuoglu-Ozturk D</b>, Aksoy O, Schmidt C, Lea R, Larson JD, Phelps RRL, et al.</div>
+          <div class="pub-venue"><i>Cancer Research</i> (2023)</div>
+        </a>
+
+        <div class="pub-year" data-cat="cancer">2022</div>
+        <a class="pub" data-cat="cancer" href="https://doi.org/10.15252/embj.2021109823" target="_blank" rel="noopener">
+          <div class="pub-title">Protein synthesis control in cancer: selectivity and therapeutic targeting</div>
+          <div class="pub-authors">Kovalski JR, <b>Kuzuoglu-Ozturk D</b>, Ruggero D.</div>
+          <div class="pub-venue"><i>The EMBO Journal</i> 41(8):e109823 (2022) · Review</div>
+        </a>
+        <a class="pub" data-cat="cancer" href="https://doi.org/10.1016/j.molcel.2022.04.016" target="_blank" rel="noopener">
+          <div class="pub-title">Localization of a TORC1-eIF4F translation complex during CD8<sup>+</sup> T cell activation drives divergent cell fate</div>
+          <div class="pub-authors">Liedmann S, Liu X, Guy CS, Crawford JC, Rodriguez DA, <b>Kuzuoğlu-Öztürk D</b>, … Green DR.</div>
+          <div class="pub-venue"><i>Molecular Cell</i> 82(13):2401–2414 (2022)</div>
+        </a>
+
+        <div class="pub-year" data-cat="cancer">2021</div>
+        <a class="pub" data-cat="cancer" href="https://doi.org/10.1016/j.celrep.2021.109321" target="_blank" rel="noopener">
+          <div class="pub-title">Revealing molecular pathways for cancer cell fitness through a genetic screen of the cancer translatome<span class="note">First author</span></div>
+          <div class="pub-authors"><b>Kuzuoglu-Ozturk D</b>, Hu Z, Rama M, Devericks E, Weiss J, Chiang GG, Worland ST, Brenner SE, Goodarzi H, Gilbert LA, Ruggero D.</div>
+          <div class="pub-venue"><i>Cell Reports</i> 35(13):109321 (2021)</div>
+        </a>
+
+        <div class="pub-year" data-cat="rna">2016</div>
+        <a class="pub" data-cat="rna" href="https://pubmed.ncbi.nlm.nih.gov/?term=miRISC+and+the+CCR4-NOT+complex+silence+mRNA+targets+independently+of+43S+ribosomal+scanning" target="_blank" rel="noopener">
+          <div class="pub-title">miRISC and the CCR4–NOT complex silence mRNA targets independently of 43S ribosomal scanning<span class="note">First author</span></div>
+          <div class="pub-authors"><b>Kuzuoğlu-Öztürk D</b>, Bhandari D, Huntzinger E, Fauser M, Helms S, et al.</div>
+          <div class="pub-venue"><i>The EMBO Journal</i> (2016)</div>
+        </a>
+
+        <div class="pub-year" data-cat="rna">2014</div>
+        <a class="pub" data-cat="rna" href="https://pubmed.ncbi.nlm.nih.gov/?term=A+DDX6-CNOT1+complex+and+W-binding+pockets+in+CNOT9+reveal+direct+links+between+miRNA+target+recognition+and+silencing" target="_blank" rel="noopener">
+          <div class="pub-title">A DDX6-CNOT1 complex and W-binding pockets in CNOT9 reveal direct links between miRNA target recognition and silencing</div>
+          <div class="pub-authors">Chen Y, Boland A, <b>Kuzuoğlu-Öztürk D</b>, Bawankar P, Loh B, Chang CT, … Izaurralde E.</div>
+          <div class="pub-venue"><i>Molecular Cell</i> 54(5):737–750 (2014)</div>
+        </a>
+
+        <div class="pub-year" data-cat="rna">2013</div>
+        <a class="pub" data-cat="rna" href="https://pubmed.ncbi.nlm.nih.gov/?term=Structure+and+assembly+of+the+NOT+module+of+the+human+CCR4-NOT+complex" target="_blank" rel="noopener">
+          <div class="pub-title">Structure and assembly of the NOT module of the human CCR4–NOT complex</div>
+          <div class="pub-authors">Boland A, Chen Y, Raisch T, Jonas S, <b>Kuzuoğlu-Öztürk D</b>, Wohlbold L, … Izaurralde E.</div>
+          <div class="pub-venue"><i>Nature Structural &amp; Molecular Biology</i> 20(11):1289–1297 (2013)</div>
+        </a>
+        <a class="pub" data-cat="rna" href="https://pubmed.ncbi.nlm.nih.gov/?term=GW182+proteins+cause+PABP+dissociation+from+silenced+miRNA+targets+in+the+absence+of+deadenylation" target="_blank" rel="noopener">
+          <div class="pub-title">GW182 proteins cause PABP dissociation from silenced miRNA targets in the absence of deadenylation</div>
+          <div class="pub-authors">Zekri L, <b>Kuzuoğlu-Öztürk D</b>, Izaurralde E.</div>
+          <div class="pub-venue"><i>The EMBO Journal</i> 32(7):1052–1065 (2013)</div>
+        </a>
+
+        <div class="pub-year" data-cat="rna">2012</div>
+        <a class="pub" data-cat="rna" href="https://pubmed.ncbi.nlm.nih.gov/?term=The+Caenorhabditis+elegans+GW182+protein+AIN-1+interacts+with+PAB-1+and+subunits+of+the+PAN2-PAN3+and+CCR4-NOT+deadenylase+complexes" target="_blank" rel="noopener">
+          <div class="pub-title">The <i>Caenorhabditis elegans</i> GW182 protein AIN-1 interacts with PAB-1 and subunits of the PAN2-PAN3 and CCR4-NOT deadenylase complexes<span class="note">First author</span></div>
+          <div class="pub-authors"><b>Kuzuoğlu-Öztürk D</b>, Huntzinger E, Schmidt S, Izaurralde E.</div>
+          <div class="pub-venue"><i>Nucleic Acids Research</i> 40(12):5651–5665 (2012)</div>
+        </a>
+      </div>
+      <p class="pubs-foot">Author names in bold. Links open the article or its PubMed record.</p>
+    </div>
+  </section>
+
+  <!-- TEACHING & SERVICE -->
+  <section id="teaching">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Teaching &amp; Service</p>
+        <h2>In the classroom and the community</h2>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <h3>Teaching at Sabancı</h3>
+          <ul>
+            <li><b>BIO 303 · Genetics</b> — undergraduate course, Molecular Biology, Genetics &amp; Bioengineering</li>
+            <li><b>BIO 591 · Directed Research</b> — graduate research supervision</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Service</h3>
+          <ul>
+            <li>Scientific Committee member, MolBiyoKon'26 — 10th International Congress of the Molecular Biology Association of Turkey (2026)</li>
+            <li>Continuing collaborations with the University of California, San Francisco</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN / CONTACT -->
+  <section id="join" class="join">
+    <div class="wrap join-grid">
+      <div>
+        <p class="eyebrow">Join the lab</p>
+        <h2>We are building a new team in İstanbul.</h2>
+        <p>We welcome motivated undergraduate researchers, MSc and PhD students, and postdoctoral fellows who are curious about RNA biology, translational control and cancer. We value rigorous, collaborative and inclusive science.</p>
+        <ul>
+          <li><b>Students:</b> email a short note on your interests and a CV. Sabancı students can also enrol in directed research.</li>
+          <li><b>Postdocs:</b> send a CV, a brief research statement and contact details for two referees. We are happy to support fellowship applications (e.g. EMBO, MSCA, TÜBİTAK).</li>
+          <li><b>Collaborators:</b> we are always glad to discuss joint projects.</li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <dl>
+          <dt>Email</dt>
+          <dd><a href="mailto:duygu.kuzuoglu@sabanciuniv.edu">duygu.kuzuoglu@sabanciuniv.edu</a></dd>
+          <dt>Office</dt>
+          <dd>FENS Building, Room 2087<br>Sabancı University, Orta Mahalle, Tuzla 34956, İstanbul</dd>
+          <dt>Programme</dt>
+          <dd>Molecular Biology, Genetics &amp; Bioengineering</dd>
+        </dl>
+        <a class="btn btn-light" href="https://11to.me/dyg" target="_blank" rel="noopener noreferrer">Schedule a video call</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Kuzuoğlu Öztürk Lab · Sabancı University</span>
+    <span><a href="https://bio.sabanciuniv.edu/en" target="_blank" rel="noopener">Molecular Biology, Genetics &amp; Bioengineering</a> · <a href="https://www.sabanciuniv.edu/en" target="_blank" rel="noopener">Sabancı University</a></span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Publication filter
+  const buttons = document.querySelectorAll('.filters button');
+  const items = document.querySelectorAll('#pubList [data-cat]');
+  buttons.forEach(b => b.addEventListener('click', () => {
+    buttons.forEach(x => x.setAttribute('aria-pressed', x === b));
+    const f = b.dataset.filter;
+    items.forEach(el => { el.style.display = (f === 'all' || el.dataset.cat === f) ? '' : 'none'; });
+  }));
+</script>
 </body>
 </html>
